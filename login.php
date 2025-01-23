@@ -5,7 +5,8 @@ use MyAAC\Models\PlayerOnline;
 use MyAAC\Models\Account;
 use MyAAC\Models\Player;
 use MyAAC\RateLimit;
-
+global $db;
+require_once 'config.local.php';
 require_once 'common.php';
 require_once SYSTEM . 'functions.php';
 require_once SYSTEM . 'init.php';
@@ -86,12 +87,14 @@ switch ($action) {
 		die(json_encode(['eventlist' => $eventlist, 'lastupdatetimestamp' => time()]));
 
 	case 'boostedcreature':
-		$boostedCreature = BoostedCreature::latest();
+		$creatureBoost = $db->query("SELECT * FROM " . $db->tableName('boosted_creature'))->fetchAll();
+		$bossBoost     = $db->query("SELECT * FROM " . $db->tableName('boosted_boss'))->fetchAll();
 		die(json_encode([
 			'boostedcreature' => true,
-			'raceid' => $boostedCreature->raceid
+			'creatureraceid'  => intval($creatureBoost[0]['raceid']),
+			'bossraceid'      => intval($bossBoost[0]['raceid'])
 		]));
-	break;
+		break;
 
 	case 'login':
 
