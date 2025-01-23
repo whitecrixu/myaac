@@ -86,6 +86,8 @@ switch ($action) {
 			$eventlist[] = $tmplist; } }
 		die(json_encode(['eventlist' => $eventlist, 'lastupdatetimestamp' => time()]));
 
+// To make this script work, you need to configure the database in config.local.php after installation.
+	
 	case 'boostedcreature':
 		$creatureBoost = $db->query("SELECT * FROM " . $db->tableName('boosted_creature'))->fetchAll();
 		$bossBoost     = $db->query("SELECT * FROM " . $db->tableName('boosted_boss'))->fetchAll();
