@@ -181,3 +181,31 @@ function isHttps(): bool
 		|| (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
 		|| (isset($_SERVER['SERVER_PORT']) && (int) $_SERVER['SERVER_PORT'] === 443);
 }
+//Boosted Creature configuration work with atomio and otservbr(canary)
+/*
+    $db = new PDO('mysql:host=localhost;dbname=yourdbname;charset=utf8', 'user', 'password');
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die('Połączenie z bazą danych nie powiodło się: ' . $e->getMessage());
+}
+
+function getBoostedData($db) {
+    $boostedData = [
+        'boostedCreature' => 'None',
+        'boostedBoss' => 'None'
+    ];
+
+    // Pobierz Boosted Creature
+    $creaturequery = $db->query("SELECT `boostname` FROM `boosted_creature` LIMIT 1")->fetch();
+    if ($creaturequery) {
+        $boostedData['boostedCreature'] = $creaturequery['boostname'];
+    }
+
+    // Pobierz Boosted Boss
+    $bossquery = $db->query("SELECT `boostname` FROM `boosted_boss` LIMIT 1")->fetch();
+    if ($bossquery) {
+        $boostedData['boostedBoss'] = $bossquery['boostname'];
+    }
+
+    return $boostedData;
+*/
