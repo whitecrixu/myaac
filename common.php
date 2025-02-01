@@ -183,7 +183,8 @@ function isHttps(): bool
 }
 //Boosted Creature configuration work with atomio and otservbr(canary)
 /*
-    $db = new PDO('mysql:host=localhost;dbname=yourdbname;charset=utf8', 'user', 'password');
+try {
+    $db = new PDO('mysql:host=localhost;dbname=dbname;charset=utf8', 'user', 'password');
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     die('Połączenie z bazą danych nie powiodło się: ' . $e->getMessage());
@@ -208,4 +209,7 @@ function getBoostedData($db) {
     }
 
     return $boostedData;
+    
+}
+
 */
