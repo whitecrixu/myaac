@@ -316,13 +316,13 @@ return [
 			'name' => 'Vocations Amount',
 			'type' => 'number',
 			'desc' => 'How much basic vocations your server got (without promotion)',
-			'default' => 4,
+			'default' => 5,
 		],
 		'vocations' => [
 			'name' => 'Vocation Names',
 			'type' => 'textarea',
 			'desc' => 'Separated by comma. Must be in the same order as in vocations.xml, starting with id: 0.',
-			'default' => 'None, Sorcerer, Druid, Paladin, Knight, Master Sorcerer, Elder Druid,Royal Paladin, Elite Knight',
+			'default' => 'None, Sorcerer, Druid, Paladin, Knight, Master Sorcerer, Elder Druid,Royal Paladin, Elite Knight, Monk, Exalted Monk',
 			'callbacks' => [
 				'get' => function ($value) {
 					return array_map('trim', explode(',', $value));
@@ -753,7 +753,7 @@ Sent by MyAAC,<br/>
 			'desc' => "Character Samples used when creating character.<br/>" .
 						"Format: <strong>ID_of_vocation =Name of Character to copy</strong><br/>" .
 			"For Rook use - <strong>0=Rook Sample</strong>",
-			'default' => "1=Sorcerer Sample\n2=Druid Sample\n3=Paladin Sample\n4=Knight Sample",
+			'default' => "1=Sorcerer Sample\n2=Druid Sample\n3=Paladin Sample\n9=Monk Sample\n4",
 			'callbacks' => [
 				'get' => function ($value) {
 					$ret = [];
